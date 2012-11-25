@@ -1,0 +1,37 @@
+name: <__trans phrase="SimpleGridField">
+id: SimpleGridField
+key: SimpleGridField
+author: Kunihiko Miyanaga
+author_link: http://www.ideamans.com/
+description: <__trans phrase="Adds simple grid customfield types.">
+
+callbacks:
+    init_app:
+        priority: 8
+        code: $SimpleGridField::MT::SimpleGridField::Core::init_app
+
+tags:
+    function:
+        RowLabel: sub { shift->var('label') || '' }
+        RowContent: sub { shift->var('content') || '' }
+
+customfield_types:
+    text_and_textarea_grid:
+        label: Simple Grid with Textbox and Textarea
+        field_html: |
+            <mt:include name="customfield/text_and_textarea_grid.tmpl" component="SimpleGridField">
+        field_html_params: $SimpleGridField::MT::SimpleGridField::Core::field_html_params
+        column_def: vclob
+        order: 3000
+
+l10n_lexicon:
+    ja:
+        'Label': '見出し'
+        'Content': '内容'
+        'SimpleGridField': 'シンプル表形式フィールド'
+        'Adds simple grid customfield types.': 'シンプルな表形式のカスタムフィールドを追加します'
+        'Simple Grid with Textbox and Textarea': 'テキストボックスとテキストエリアの表'
+        'Copy': '複製'
+        'Paste this JSON to default value of field, You can set initial grid.': 'このJSONをフィールドの規定値に指定すると、表の初期状態を設定できます。'
+        'To set default, copy JSON from actual field.': '規定値を設定するには実際のフィールドからJSONを貼り付けてください。'
+        'See the following template to expand rows.': '各行を展開するには下記のテンプレートを参考にしてください。'

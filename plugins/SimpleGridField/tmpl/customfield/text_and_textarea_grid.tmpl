@@ -1,0 +1,73 @@
+<mt:include name="customfield/common_css.tmpl">
+
+<mt:if name="field_id" ne="default">
+<mtapp:loadKnockoutJS>
+<div id="<mt:var name='field_id'>-grid">
+    <table id="cms-custom-label-form" class="listing-table simple-grid-field-table">
+        <thead>
+            <tr>
+                <th class="col head sort"></th>
+                <th class="col head string"><span class="col-label"><__trans phrase="Label"></span></th>
+                <th class="col head primary"><span class="col-label"><__trans phrase="Content"></span></th>
+                <th class="col head control"></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach:rows, sortable:{handle:'.sort-tab'}">
+            <tr>
+                <td class="col sort"><span class="sort-tab">&nbsp;</span></td>
+                <td class="col string"><input type="text" name="label" class="text" data-bind="value:label" value=""></td>
+                <td class="col primary"><textarea name="content" class="text high" data-bind="value:content"></textarea></td>
+                <td class="col control">
+                    <a href="javascript:void(0)" data-bind="click:$root._copy" class="icon-left icon-download"><__trans phrase="Copy"></a>
+                    <a href="javascript:void(0)" data-bind="click:$root._remove" class="icon-left icon-remove"><__trans phrase="Remove"></a>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td class="col sort"></td>
+                <td class="col string">
+                </td>
+                <td class="col primary">
+                    <a href="javascript:void(0)" data-bind="click:_add" class="icon-left icon-plus"><__trans phrase="Add"></a>
+                </td>
+                <td class="col control">
+                    <mt:if name="source_viewable">
+                    <a href="javascript:void(0)" id="<mt:var name='field_id'>-toggle" class="icon-left icon-settings"><__trans phrase="JSON"></a>
+                    </mt:if>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="<mt:var name='field_id'>-source">
+</mt:if>
+        <textarea name="<mt:var name="field_name" escape="html">" id="<mt:var name="field_id">" class="text high" data-apply-to="<mt:var name='field_id'>-grid"><mt:var name="field_value" escape="html"></textarea>
+<mt:if name="field_id" eq="default">
+        <div class="hint">
+            <__trans phrase="To set default, copy JSON from actual field.">
+            <__trans phrase="See the following template to expand rows.">
+        </div>
+        <pre class="code">&lt;mt:<mt:var name="tag" escape="html">Rows&gt;
+    <__trans phrase="Label">: &lt;mt:RowLabel&gt;
+    <__trans phrase="Content">: &lt;mt:RowContent nl2br=&quot;1&quot;&gt;
+&lt;/mt:<mt:var name="tag" escape="html">Rows&gt;</pre>
+<mt:else>
+        <div class="hint">
+            <__trans phrase="Paste this JSON to default value of field, You can set initial grid.">
+            <a href="javascript:void(0)" data-bind="click:_serialize"><__trans phrase="Update"></a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        jQuery(function($) {
+            $('#<mt:var name="field_id">').knockoutTable({
+                defaults: { label: '', content: '' }
+            });
+            $('#<mt:var name="field_id">-toggle').click(function() {
+                $('#<mt:var name="field_id">-source').toggleClass('hidden');
+            });
+            $('#<mt:var name="field_id">-source').addClass('hidden');
+        })
+    </script>
+</mt:if>
+</div>
