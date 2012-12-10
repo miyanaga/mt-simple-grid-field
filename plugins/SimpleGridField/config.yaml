@@ -26,12 +26,12 @@ customfield_types:
 
 l10n_lexicon:
     ja:
-        'Label': '見出し'
-        'Content': '内容'
-        'SimpleGridField': 'シンプル表形式フィールド'
-        'Adds simple grid customfield types.': 'シンプルな表形式のカスタムフィールドを追加します'
-        'Simple Grid with Textbox and Textarea': 'テキストボックスとテキストエリアの表'
-        'Copy': '複製'
-        'Paste this JSON to default value of field, You can set initial grid.': 'このJSONをフィールドの規定値に指定すると、表の初期状態を設定できます。'
-        'To set default, copy JSON from actual field.': '規定値を設定するには実際のフィールドからJSONを貼り付けてください。'
-        'See the following template to expand rows.': '各行を展開するには下記のテンプレートを参考にしてください。'
+        Label: 見出し
+        Content: 内容
+        SimpleGridField: シンプル表形式フィールド
+        Adds simple grid customfield types.: シンプルな表形式のカスタムフィールドを追加します
+        Simple Grid with Textbox and Textarea: テキストボックスとテキストエリアの表
+        Copy: 複製
+        Paste this JSON to default value of field, You can set initial grid.: このJSONをフィールドの規定値に指定すると、表の初期状態を設定できます。
+        To set default, copy JSON from actual field.: 規定値を設定するには実際のフィールドからJSONを貼り付けてください。
+        See the following template to expand rows.: 各行を展開するには下記のテンプレートを参考にしてください。
