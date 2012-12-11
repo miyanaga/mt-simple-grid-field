@@ -12,6 +12,7 @@ callbacks:
 
 tags:
     function:
+        RowDate: sub { shift->var('date') || '' }
         RowLabel: sub { shift->var('label') || '' }
         RowContent: sub { shift->var('content') || '' }
 
@@ -23,6 +24,13 @@ customfield_types:
         field_html_params: $SimpleGridField::MT::SimpleGridField::Core::field_html_params
         column_def: vclob
         order: 3000
+    2text_and_textarea_grid:
+        label: Simple Grid with 2 Textboxes and Textarea
+        field_html: |
+            <mt:include name="customfield/2text_and_textarea_grid.tmpl" component="SimpleGridField">
+        field_html_params: $SimpleGridField::MT::SimpleGridField::Core::field_html_params
+        column_def: vclob
+        order: 3100
 
 l10n_lexicon:
     ja:
@@ -31,6 +39,7 @@ l10n_lexicon:
         SimpleGridField: シンプル表形式フィールド
         Adds simple grid customfield types.: シンプルな表形式のカスタムフィールドを追加します
         Simple Grid with Textbox and Textarea: テキストボックスとテキストエリアの表
+        Simple Grid with 2 Textboxes and Textarea: 2つのテキストボックスとテキストエリアの表
         Copy: 複製
         Paste this JSON to default value of field, You can set initial grid.: このJSONをフィールドの規定値に指定すると、表の初期状態を設定できます。
         To set default, copy JSON from actual field.: 規定値を設定するには実際のフィールドからJSONを貼り付けてください。
