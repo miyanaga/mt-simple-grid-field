@@ -73,7 +73,7 @@ sub install_grid_tags {
     my $handler_grid = \&_hdlr_customfield_grid_by_tag;
 
     FIELD: for my $field (@$fields) {
-        next if $field->type ne 'text_and_textarea_grid';
+        next if $field->type !~ /text_and_textarea_grid/;
 
         my $tag = $field->tag
             or next FIELD;
